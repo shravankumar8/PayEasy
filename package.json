@@ -1,5 +1,5 @@
 {
-  "name": "PayEasy",
+  "name": "payeasy",
   "private": true,
   "scripts": {
     "build": "turbo build",
@@ -19,5 +19,9 @@
   "workspaces": [
     "apps/*",
     "packages/*"
-  ]
+  ],
+  "dependencies": {
+    "@prisma/client": "^5.17.0",
+    "next-auth": "^4.24.7"
+  }
 }

@@ -1,13 +1,19 @@
-import Image from "next/image";
-import { Button } from "@repo/ui/button";
-import styles from "./page.module.css";
-
+"use client";
+import { Appbar } from "@repo/ui/appbar";
+import { useSession } from "next-auth/react";
+// import { useBalance } from "@repo/store/useBalance";
+// import { useBalance } from "@repo/store/useBalance";
 export default function Home() {
+  // const balance = useBalance();
+  const session = useSession();
   return (
-   <div> 
-    <div className="">
-      hii
+    <div>
+      <div>
+        <Appbar signedIn={true} />
+      </div>
+
+      {/* <div>{JSON.stringify(session.data?.user)}</div> */}
+      {/* <div>{balance}</div> */}
     </div>
-   </div>
   );
 }
