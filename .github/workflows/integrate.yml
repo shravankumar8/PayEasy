@@ -1,0 +1,33 @@
+name: Continuous Integration on PR
+
+on:
+  pull_request:
+    branches:
+      - master
+      - main
+
+env:
+  DATABASE_URL: ${{ secrets.DATABASE_URL }}
+
+jobs:
+  build:
+    name: Build the Product
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Generate Prisma Client
+        run: cd packages/db/prisma && npx prisma generate
+
+      - name: Build the Project
+        run: npm run build
