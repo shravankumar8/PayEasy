@@ -1,7 +1,7 @@
 name: Continuous Integration on PR
 
 on:
-  pull_request:
+  push:
     branches:
       - master
       - main
